@@ -3,8 +3,8 @@ rule "Primo VE - Title"
 		MARCRECORD
 	then
 	    set TEMP"1" to prima display title
-        remove string (TEMP"1","<<")
-        remove string (TEMP"1",">>")
+        remove string (TEMP"1","&lt;&lt;")
+        remove string (TEMP"1","&gt;&gt;")
         remove substring using regex (TEMP"1","(,|/|:|;|=)+$")
 		create pnx."display"."title" with TEMP"1"
 end

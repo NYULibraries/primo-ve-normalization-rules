@@ -1,0 +1,20 @@
+rule "prima_display rights - dc:rights"
+	when
+		DCMI is "dc"."rights"
+	then
+		create operational."prima_display"."rights" with DCMI."dc"."rights"
+end
+
+rule "prima_display rights - dcterms:rights"
+	when
+		DCMI is "dcterms"."rights"
+	then
+		create operational."prima_display"."rights" with DCMI."dcterms"."rights"
+end
+
+rule "prima_display rights - dcterms:accessRights"
+	when
+		DCMI is "dcterms"."accessRights"
+	then
+		create operational."prima_display"."rights" with DCMI."dcterms"."accessRights"
+end

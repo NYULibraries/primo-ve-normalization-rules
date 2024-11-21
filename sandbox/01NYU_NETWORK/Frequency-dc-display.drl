@@ -1,0 +1,6 @@
+rule "prima_display frequency - dcterms:accrualPeriodicity"
+	when
+		DCMI is "dcterms"."accrualPeriodicity"
+	then
+		create operational."prima_display"."frequency" with DCMI."dcterms"."accrualPeriodicity"
+end

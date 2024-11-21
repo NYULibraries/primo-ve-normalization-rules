@@ -1,0 +1,6 @@
+rule "prima_display Complete Title"
+	when
+		DCMI is "dc"."XXX"
+	then	  
+		create operational."prima_display"."vertitle" with DCMI."dc"."XXX"
+end

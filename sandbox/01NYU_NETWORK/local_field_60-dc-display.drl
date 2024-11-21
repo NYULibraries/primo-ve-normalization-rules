@@ -1,0 +1,6 @@
+rule "Primo VE - Lds60"
+	when
+		DCMI is "dc"."XXX"
+	then
+		create pnx."display"."lds60" with DCMI."dc"."XXX"
+end

@@ -1,0 +1,14 @@
+rule "prima_display language - dcterms:language"
+	when
+		DCMI is "dcterms"."language"
+	then
+		create operational."prima_display"."language" with DCMI."dcterms"."language" prima lang "display"
+end
+
+rule "prima_display language - dc:language"
+	when
+		DCMI is "dc"."language"
+	then
+		create operational."prima_display"."language" with DCMI."dc"."language" prima lang "display"
+end
+

@@ -1,0 +1,39 @@
+rule "prima_display date_of_publication - dc:date"
+priority 10
+	when
+		DCMI."dc"."date" not match ".*Z$"
+	then
+		set operational."prima_display"."date_of_publication" to DCMI."dc"."date"
+end
+
+rule "prima_display date_of_publication - dcterms:date"
+priority 20
+	when
+		DCMI."dcterms"."date" not match ".*Z$"
+	then
+		set operational."prima_display"."date_of_publication" to DCMI."dcterms"."date"
+end
+
+rule "prima_display date_of_publication - dcterms:created"
+priority 30
+	when
+		DCMI is "dcterms"."created"
+	then
+		set operational."prima_display"."date_of_publication" to DCMI."dcterms"."created"
+end
+
+rule "prima_display date_of_publication - dcterms:issued"
+priority 40
+	when
+		DCMI is "dcterms"."issued"
+	then
+		set operational."prima_display"."date_of_publication" to DCMI."dcterms"."issued"
+end
+
+rule "prima_display date_of_publication - dcterms:dateCopyrighted"
+priority 50
+	when
+		DCMI is "dcterms"."dateCopyrighted"
+	then
+		set operational."prima_display"."date_of_publication" to DCMI."dcterms"."dateCopyrighted"
+end

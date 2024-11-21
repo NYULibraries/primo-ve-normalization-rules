@@ -1,0 +1,6 @@
+rule "Primo VE DC - Lsr52"
+	when
+		DCMI is "dc"."identifier"
+	then
+		create pnx."search"."lsr52" with DCMI."dc"."identifier"
+end

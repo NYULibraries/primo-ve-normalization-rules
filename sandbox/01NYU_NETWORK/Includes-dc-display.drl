@@ -1,0 +1,6 @@
+rule "prima_display Includes "
+	when
+		DCMI is "dc"."XXX"
+	then	  
+		create operational."prima_display"."ncludes" with DCMI."dc"."XXX"
+end

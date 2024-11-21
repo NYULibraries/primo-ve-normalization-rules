@@ -1,0 +1,6 @@
+rule "prima_display Related Work "
+	when
+		DCMI is "dc"."XXX"
+	then	  
+		create operational."prima_display"."related_work" with DCMI."dc"."XXX"
+end

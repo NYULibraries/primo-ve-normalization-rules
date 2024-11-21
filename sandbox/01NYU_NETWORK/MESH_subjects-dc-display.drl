@@ -1,0 +1,13 @@
+rule "prima_display mesh - dc:subject (dcterms: MESH)"
+	when
+		DCMI is "dc"."subject"."MESH"
+	then
+		create operational."prima_display"."mesh" with DCMI."dc"."subject"."MESH"
+end
+
+rule "prima_display mesh - dcterms:subject (dcterms: MESH)"
+	when
+		DCMI is "dcterms"."subject"."MESH"
+	then
+		create operational."prima_display"."mesh" with DCMI."dcterms"."subject"."MESH"
+end

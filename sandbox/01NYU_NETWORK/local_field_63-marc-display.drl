@@ -1,0 +1,29 @@
+rule "Primo VE - Lds63"
+	when
+		MARC."506" has any "a,b,c,d,e"
+	then
+		create pnx."display"."lds63" with MARC."506" subfields "a,b,c,d,e" 
+end
+
+rule "Primo VE - Lds63 -  2" 
+  when
+    MARC is "542"."d" AND MARC is "500"."a" AND 
+    MARC."500"."a" match ".*Part of the Hemispheric Institute Digital Video Library.*"
+  then 
+    set TEMP"2" to MARC."542"."d" 
+    add prefix (TEMP"2","Copyright holder: ") 
+    create pnx."display"."lds63" with TEMP"2" 
+end
+
+rule "Primo VE - Lds63 -  3" 
+  when
+    MARC is "542"."e" AND MARC is "500"."a" AND 
+    MARC."500"."a" match ".*Part of the Hemispheric Institute Digital Video Library.*"
+  then 
+    set TEMP"3" to MARC."542"."e" 
+    add prefix (TEMP"3","Contact information: ") 
+    create pnx."display"."lds63" with TEMP"3" 
+end
+
+
+

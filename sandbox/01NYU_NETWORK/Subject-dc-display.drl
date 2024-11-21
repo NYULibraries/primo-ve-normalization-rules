@@ -1,0 +1,13 @@
+rule "prima_display subject - dc:subject"
+	when
+		DCMI is "dc"."subject" and extender not in "MESH"
+	then
+		create operational."prima_display"."subject" with DCMI."dc"."subject"
+end
+
+rule "prima_display subject - dcterms:subject"
+	when
+		DCMI is "dcterms"."subject" and extender not in "MESH"
+	then
+		create operational."prima_display"."subject" with DCMI."dcterms"."subject"
+end

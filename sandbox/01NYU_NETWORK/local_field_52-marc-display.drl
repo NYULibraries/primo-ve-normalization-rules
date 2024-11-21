@@ -1,0 +1,127 @@
+rule "Primo VE - Lds52"
+  when
+    MARC is "901"."a" 
+  then
+    set TEMP"1" to MARC."901"."a" 
+    add prefix (TEMP"1","aleph")
+    create pnx."display"."lds52" with TEMP"1" 
+end
+
+rule "Primo VE - Lds52 -  1" 
+  when
+    MARC is "035"."a" AND MARC."035"."a" match ".*CKB.*"
+  then 
+    create pnx."display"."lds52" with MARC "035"."a" 
+end
+
+rule "Primo VE - Lds52 -  2" 
+  when
+    MARC.control is "001" AND MARC is "999"."m" AND 
+    MARC."999"."m" match "HOLLIS"
+  then 
+    set TEMP"2" to MARC.control."001" 
+    add prefix (TEMP"2","HOLLIS") 
+    create pnx."display"."lds52" with TEMP"2" 
+end
+
+rule "Primo VE - Lds52 -  3" 
+  when
+    MARC is "909"."v" AND MARC is "710"."a" AND 
+    MARC."710"."a" match ".*Hemispheric Institute Digital Video Library.*"
+  then 
+    set TEMP"3" to MARC."909"."v" 
+    replace string by string (TEMP"3","dltshidv.*/","")
+    add prefix (TEMP"3","HIDVL") 
+    create pnx."display"."lds52" with TEMP"3" 
+end
+
+rule "Primo VE - Lds52 -  3b" 
+  when
+    MARC is "909"."v" AND MARC is "710"."b" AND 
+    MARC."710"."b" match ".*Hemispheric Institute Digital Video Library.*"
+  then 
+    set TEMP"3" to MARC."909"."v" 
+    replace string by string (TEMP"3","dltshidv.*/","")
+    add prefix (TEMP"3","HIDVL") 
+    create pnx."display"."lds52" with TEMP"3" 
+end
+
+rule "Primo VE - Lds52 -  4" 
+  when
+    MARC is "909"."v" 
+  then 
+    set TEMP"4" to MARC."909"."v" 
+    replace string by string (TEMP"4","_.*","")
+    create pnx."display"."lds52" with TEMP"4" 
+  end
+
+rule "Primo VE - Lds52 -  5" 
+  when
+    MARC is "909"."z" 
+  then 
+    set TEMP"5" to MARC."909"."z" 
+    replace string by string (TEMP"5","nyu_","")
+    create pnx."display"."lds52" with TEMP"5" 
+  end
+
+rule "Primo VE - Lds52 -  6" 
+  when
+    MARC.control is "001" AND MARC is "994"."b" AND 
+    MARC."994"."b" match "VVU" 
+  then 
+    set TEMP"6" to MARC.control."001"
+    add prefix (TEMP"6","HSLocolc") 
+    create pnx."display"."lds52" with TEMP"6" 
+end
+
+
+rule "Primo VE - Lds52 -  7" 
+  when
+    MARC.control is "001" AND MARC is "856"."u" AND 
+    MARC."856"."u" match ".*hslguides.*" 
+  then 
+    set TEMP"7" to MARC.control."001"
+    add prefix (TEMP"7","HSLDB") 
+    create pnx."display"."lds52" with TEMP"7" 
+end
+
+rule "Primo VE - Lds52 -  8"
+  when
+    MARC is "951"."a" 
+  then
+    set TEMP"1" to MARC."951"."a" 
+    add prefix (TEMP"1","aleph")
+    create pnx."display"."lds52" with TEMP"1" 
+end
+
+rule "Primo VE - Lds52 -  9" 
+  when
+    MARC is "035"."a" AND MARC."035"."a" match ".*libgaz.*"
+  then 
+    create pnx."display"."lds52" with MARC "035"."a" 
+end
+
+rule "Primo VE - Lds52 -  10" 
+  when
+    MARC is "935"."a" AND MARC is "710"."a" AND 
+    MARC."710"."a" match ".*Hemispheric Institute Digital Video Library.*"
+  then 
+    set TEMP"3" to MARC."935"."a" 
+    replace string by string (TEMP"3","dltshidv.*/","")
+    add prefix (TEMP"3","HIDVL") 
+    create pnx."display"."lds52" with TEMP"3" 
+end
+
+rule "Primo VE - Lds52 -  10b" 
+  when
+    MARC is "935"."a" AND MARC is "710"."b" AND 
+    MARC."710"."b" match ".*Hemispheric Institute Digital Video Library.*"
+  then 
+    set TEMP"3" to MARC."935"."a" 
+    replace string by string (TEMP"3","dltshidv.*/","")
+    add prefix (TEMP"3","HIDVL") 
+    create pnx."display"."lds52" with TEMP"3" 
+end
+
+
+

@@ -1,0 +1,33 @@
+rule "prima_display format - dcterms:format"
+	when
+		DCMI is "dcterms"."format"
+	then
+	    set TEMP"1" to DCMI."dcterms"."format"
+	    add prefix (TEMP"1","000 ")
+		create operational."prima_display"."format" with TEMP"1"
+end
+
+rule "prima_display format - dc:format"
+	when
+		DCMI is "dc"."format"
+	then
+	    set TEMP"1" to DCMI."dc"."format"
+	    add prefix (TEMP"1","000 ")
+		create operational."prima_display"."format" with TEMP"1"
+end
+
+rule "prima_display format - dcterms:extent"
+	when
+		DCMI is "dcterms"."extent"
+	then
+		set TEMP"1" to DCMI."dcterms"."extent"
+	    add prefix (TEMP"1","000 ")
+		create operational."prima_display"."format" with TEMP"1"
+end
+
+rule "prima_display format - dcterms:medium"
+	when
+		DCMI is "dcterms"."medium"
+	then
+		create operational."prima_display"."format" with DCMI."dcterms"."medium"
+end

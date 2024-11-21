@@ -1,0 +1,6 @@
+rule "prima_display Uniform Title "
+	when
+		DCMI is "dc"."XXX"
+	then	  
+		create operational."prima_display"."uniform_title" with DCMI."dc"."XXX"
+end

@@ -1,0 +1,27 @@
+rule "prima_display coverage - dc:coverage"
+	when
+		DCMI is "dc"."coverage"
+	then
+		create operational."prima_display"."coverage" with DCMI."dc"."coverage"
+end
+
+rule "prima_display coverage - dcterms:coverage"
+	when
+		DCMI is "dcterms"."coverage"
+	then
+		create operational."prima_display"."coverage" with DCMI."dcterms"."coverage"
+end
+
+rule "prima_display coverage - dcterms:spatial"
+	when
+		DCMI is "dcterms"."spatial"
+	then
+		create operational."prima_display"."coverage" with DCMI."dcterms"."spatial"
+end
+
+rule "prima_display coverage - dcterms:temporal"
+	when
+		DCMI is "dcterms"."temporal"
+	then
+		create operational."prima_display"."coverage" with DCMI."dcterms"."temporal"
+end

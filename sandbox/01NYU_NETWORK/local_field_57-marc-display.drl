@@ -1,0 +1,13 @@
+rule "Primo VE - Lds57"
+    when                 
+        MARC."946" has any "u,y,3" AND
+        MARC."946"."u" match ".*" 
+    then        
+        set TEMP"1" to MARC."946" subfields "u"             
+        set TEMP"2" to MARC."946" sub without sort "y,3" 
+        add suffix (TEMP"2","&lt;/a&gt;")
+        add prefix (TEMP"1","&lt;a target=\"_blank\" href=\"")
+        add suffix (TEMP"1","\"&gt;")
+        concatenate with delimiter (TEMP"1",TEMP"2","")
+        set pnx."display"."lds57" to TEMP"1" 
+end

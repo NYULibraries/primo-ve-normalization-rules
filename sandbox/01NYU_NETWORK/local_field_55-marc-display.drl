@@ -1,0 +1,29 @@
+rule "Primo VE - Lds55" 
+    when                 
+        MARC is "856"."u" AND
+        MARC."856"."y" match "Finding aid online" 
+    then        
+        set TEMP"1" to MARC."856" subfields "u"             
+        set TEMP"2" to MARC."856" subfields "y"   
+        add suffix (TEMP"2","&lt;/a&gt;")
+        add prefix (TEMP"1","&lt;a target=\"_blank\" href=\"")
+        add suffix (TEMP"1","\"&gt;")
+        concatenate with delimiter (TEMP"1",TEMP"2","")
+        set pnx."display"."lds55" to TEMP"1" 
+end
+
+rule "Primo VE - Lds55_1" 
+    when                 
+        MARC is "555"."u" AND
+        MARC."555"."a" match "Finding aid online" AND NOT 
+        (MARC is "856"."y" AND 
+        MARC."856"."y" match "Finding aid online")
+    then        
+        set TEMP"1" to MARC."555" subfields "u"             
+        set TEMP"2" to MARC."555" subfields "a"   
+        add suffix (TEMP"2","&lt;/a&gt;")
+        add prefix (TEMP"1","&lt;a target=\"_blank\" href=\"")
+        add suffix (TEMP"1","\"&gt;")
+        concatenate with delimiter (TEMP"1",TEMP"2","")
+        set pnx."display"."lds55" to TEMP"1" 
+end

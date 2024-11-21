@@ -1,0 +1,6 @@
+rule "prima_display Series "
+	when
+		DCMI is "dc"."XXX"
+	then	  
+		create operational."prima_display"."series" with DCMI."dc"."XXX"
+end

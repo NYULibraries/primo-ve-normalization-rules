@@ -1,0 +1,17 @@
+rule "Primo VE - Lds51" 
+    when                 
+        MARC is "856"."u" AND
+        MARC."856"."y" match "Finding aid.*" 
+    then        
+        set TEMP"1" to MARC."856" subfields "u"             
+        replace string by string (TEMP"1","http://dlib.nyu.edu/findingaids/html","https://findingaids.library.nyu.edu")  
+        create pnx."display"."lds51" with TEMP"1" 
+end
+
+rule "Primo VE - Lds51 555"
+        when
+ 		MARC is "555"."u" AND 
+                MARC."555"."a" match "Finding aid.*"
+  	then
+ 		create pnx."display"."lds51" with MARC."555"."u"
+end

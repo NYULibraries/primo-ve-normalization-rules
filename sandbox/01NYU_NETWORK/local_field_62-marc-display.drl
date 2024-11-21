@@ -1,0 +1,30 @@
+rule "Primo VE - Lds62"
+	when
+		MARC is "590"."a"
+	then
+		create pnx."display"."lds62" with MARC "590"."a"
+end
+
+rule "Primo VE - Lds62 - 2"
+	when
+		MARC is "970"."a"
+	then
+		create pnx."display"."lds62" with MARC "970"."a"
+end
+
+rule "Primo VE - Lds62 - 3"
+	when
+		MARC is "990"."a"
+	then
+		create pnx."display"."lds62" with MARC "990"."a"
+end
+
+rule "Primo VE - Lds62 - 4"
+	when
+		MARC is "950"."a"
+	then
+		create pnx."display"."lds62" with MARC "950"."a"
+end
+
+
+

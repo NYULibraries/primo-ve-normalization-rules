@@ -1,0 +1,6 @@
+rule "prima_display addtitle - dcterms:alternative"
+	when
+		DCMI is "dcterms"."alternative"
+	then
+		create operational."prima_display"."addtitle" with DCMI."dcterms"."alternative"
+end

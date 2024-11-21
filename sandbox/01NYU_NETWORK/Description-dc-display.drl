@@ -1,0 +1,20 @@
+rule "prima_display description - dcterms:description"
+	when
+		DCMI is "dcterms"."description"
+	then
+		create operational."prima_display"."description" with DCMI."dcterms"."description"
+end
+
+rule "prima_display description - dc:description"
+	when
+		DCMI is "dc"."description"
+	then
+		create operational."prima_display"."description" with DCMI."dc"."description"
+end
+
+rule "prima_display description - dcterms:abstract"
+	when
+		DCMI is "dcterms"."abstract"
+	then
+		create operational."prima_display"."description" with DCMI."dcterms"."abstract"
+end

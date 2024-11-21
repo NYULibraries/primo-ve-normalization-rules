@@ -1,0 +1,6 @@
+rule "prima_display contents - dcterms:tableOfContents"
+	when
+		DCMI is "dcterms"."tableOfContents"
+	then
+		create operational."prima_display"."contents" with DCMI."dcterms"."tableOfContents"
+end

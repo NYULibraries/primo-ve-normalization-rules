@@ -1,0 +1,13 @@
+rule "prima_display contributor - dcterms:contributor"
+	when
+		DCMI is "dcterms"."contributor"
+	then
+		create operational."prima_display"."contributor" with DCMI."dcterms"."contributor"
+end
+
+rule "prima_display contributor - dc:contributor"
+	when
+		DCMI is "dc"."contributor"
+	then
+		create operational."prima_display"."contributor" with DCMI."dc"."contributor"
+end

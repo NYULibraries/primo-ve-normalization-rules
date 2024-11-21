@@ -1,0 +1,90 @@
+rule "prima_display identifier - dc:identifier"
+	when
+		DCMI is "dc"."identifier"
+	then
+		set TEMP"1" to DCMI."dc"."identifier" 
+		create prima_display_identifier with TEMP"1" "$$Cdcidentifier$$V"
+
+end
+
+rule "prima_display identifier - dcterms:identifier"
+	when
+		DCMI is "dcterms"."identifier"
+	then
+		set TEMP"1" to DCMI."dcterms"."identifier"
+		create prima_display_identifier with TEMP"1" "$$Cdcidentifier$$V"
+
+end
+
+rule "prima_display identifier - dcterms:identifier dcterms:ISBN"
+	when
+		DCMI is "dcterms"."identifier"."ISBN"
+	then
+	    set TEMP"1" to DCMI."dcterms"."identifier"."ISBN"
+		create prima_display_identifier with TEMP"1" "$$CISBN$$V"
+
+end
+
+rule "prima_display identifier - dcterms:identifier dc:ISBN"
+	when
+		DCMI is "dc"."identifier"."ISBN"
+	then
+	    set TEMP"1" to DCMI."dc"."identifier"."ISBN"
+		create prima_display_identifier with TEMP"1" "$$CISBN$$V"
+
+end
+
+
+rule "prima_display identifier - dcterms:identifier dcterms:ISSN"
+	when
+		DCMI is "dcterms"."identifier"."ISSN"
+	then
+	    set TEMP"1" to DCMI."dcterms"."identifier"."ISSN"
+		create prima_display_identifier with TEMP"1" "$$CISSN$$V"
+
+end
+
+rule "prima_display identifier - dcterms:identifier dc:ISSN"
+	when
+		DCMI is "dc"."identifier"."ISSN"
+	then
+	    set TEMP"1" to DCMI."dc"."identifier"."ISSN"	    
+		create prima_display_identifier with TEMP"1" "$$CISSN$$V"
+
+end
+
+rule "prima_display identifier - dcterms:identifier dcterms:ISMN"
+	when
+		DCMI is "dcterms"."identifier"."ISMN"
+	then
+	    set TEMP"1" to DCMI."dcterms"."identifier"."ISMN"
+		create prima_display_identifier with TEMP"1" "$$CISMN$$V"
+
+end
+
+rule "prima_display identifier - dcterms:identifier dc:ISMN"
+	when
+		DCMI is "dc"."identifier"."ISMN"
+	then
+	    set TEMP"1" to DCMI."dc"."identifier"."ISMN"
+	    create prima_display_identifier with TEMP"1" "$$CISMN$$V"
+
+end
+
+rule "prima_display identifier - dcterms:identifier dc:URI"
+	when
+		DCMI is "dc"."identifier"."URI"
+	then
+	    set TEMP"1" to DCMI."dc"."identifier"."URI"
+		create prima_display_identifier with TEMP"1" "$$CURI$$V"
+
+end
+
+rule "prima_display identifier - dcterms:identifier dcterms:URI"
+	when
+		DCMI is "dcterms"."identifier"."URI"
+	then
+	    set TEMP"1" to DCMI."dcterms"."identifier"."URI"
+		create prima_display_identifier with TEMP"1" "$$CURI$$V"
+
+end

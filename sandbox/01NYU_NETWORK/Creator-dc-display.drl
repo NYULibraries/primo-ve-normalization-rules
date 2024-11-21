@@ -1,0 +1,13 @@
+rule "prima_display creator- dcterms:creator"
+	when
+		DCMI is "dcterms"."creator"
+	then
+		create operational."prima_display"."creator" with DCMI."dcterms"."creator"
+end
+
+rule "prima_display creator - dc:creator"
+	when
+		DCMI is "dc"."creator"
+	then
+		create operational."prima_display"."creator" with DCMI."dc"."creator"
+end

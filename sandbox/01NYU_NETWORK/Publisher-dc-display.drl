@@ -1,0 +1,13 @@
+rule "prima_display publisher - dcterms:publisher"
+	when
+		DCMI is "dcterms"."publisher"
+	then
+		create operational."prima_display"."publisher" with DCMI."dcterms"."publisher"
+end
+
+rule "prima_display publisher - dc:publisher"
+	when
+		DCMI is "dc"."publisher"
+	then
+		create operational."prima_display"."publisher" with DCMI."dc"."publisher"
+end

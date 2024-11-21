@@ -1,0 +1,15 @@
+rule "prima_display title - dc:title"
+priority 10
+	when
+		DCMI is "dc"."title"
+	then
+		set operational."prima_display"."title" to DCMI."dc"."title"
+end
+
+rule "prima_display title - dcterms:title"
+priority 20
+	when
+		DCMI is "dcterms"."title"
+	then
+		set operational."prima_display"."title" to DCMI."dcterms"."title"
+end
